@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>load.js实现</title>
+</head>
+<script>
+	function $script(loads,callback) {
+		var scriptElement = document.createElement("script");
+		scriptElement.src = loads;
+		document.head.appendChild(scriptElement);
+		//回调函数需要加载完成过后执行
+		scriptElement.addEventListener("load",callback)
+	}
+
+	$script('app.js',function () {
+		console.log(111);
+	})
+</script>
+<body>
+
+</body>
+</html>

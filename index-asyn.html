@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异步加载库</title>
+	<!--load.js、script.js、head.js都可以以异步的方式加载文件-->
+	<script src="bower_components/script.js/dist/script.min.js"></script>
+	<!--angular-loader的作用是在使用一些异步加载脚本的库是，会自动控制依赖顺序-->
+	<script src="bower_components/angular-loader/angular-loader.js"></script>
+	<script>
+		/*$script('you want to load',function () {
+
+		});*/
+
+		/*$script('./bower_components/jquery/dist/jquery.js',function () {
+			console.log($+'2');
+		});
+		console.log($+'3');*/
+
+	/*	$script([
+				'./bower_components/jquery/dist/jquery.js',
+				'./bower_components/angular/angular.js'],function () {
+					console.log(angular);
+					console.log(jQuery);
+		})*/
+
+		$script([
+				'./bower_components/angular/angular.js',
+				'./bower_components/angular-route/angular-route.js',
+				'./movie_list/controller.js',
+				'./components/http.js',
+				'./components/autofocus.js',
+				'./app.js'
+				],
+				function () {
+					console.log(angular);
+					angular.bootstrap(document,['movie'])
+		})//会出现问题，因为异步加载各js
+
+		/*$script('./bower_components/angular/angular.js',function () {
+			$script('./bower_components/angular-route/angular-route.js',function () {
+
+			});
+		 });*/
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
