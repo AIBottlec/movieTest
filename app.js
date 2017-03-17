@@ -9,8 +9,8 @@ angular.module('movie', [
 ])
 	.constant("AppConfig",{
 		pageSize:2,
-		listApiAddress:'http://api.douban.com/v2/movie/',
-		detailApiAddress:'http://api.douban.com/v2/movie/subject/'
+		listApiAddress:'https://api.douban.com/v2/movie/',
+		detailApiAddress:'https://api.douban.com/v2/movie/subject/'
 	})//常量-----依赖注入
 	.config(['$routeProvider', function ($routeProvider) {
 		$routeProvider.otherwise({redirectTo: '/in_theaters/1'});
